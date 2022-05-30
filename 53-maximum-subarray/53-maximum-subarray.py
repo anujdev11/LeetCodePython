@@ -3,7 +3,7 @@ class Solution:
         if len(nums)==1:
             return nums[0]
         suma=0
-        maxa=-1000000
+        maxa=-100000
         for i in range(len(nums)):
             suma+=nums[i]
             if suma>=maxa:
