@@ -1,21 +1,19 @@
 class Solution:
     def wordPattern(self, pattern: str, s: str) -> bool:
         
-        patternMap = dict()
-        stringMap = dict()
+        newStr = s.split(" ")
 
-        stringList = s.split(" ")
-        if len(stringList) != len(pattern):
+        hashMap={}
+        if len(pattern)!=len(newStr):
             return False
-
-
-        for char, word in zip(pattern, stringList):
-            if char in patternMap and patternMap[char] != word:
-                return False
-            if word in stringMap and stringMap[word] != char:
-                return False
-
-            patternMap[char] = word
-            stringMap[word] = char
-
-        return True
+        else:
+            for i in range(0,len(newStr)):
+                if pattern[i] not in hashMap and newStr[i] not in hashMap.values():
+                    hashMap[pattern[i]] = newStr[i]
+        
+                if pattern[i] not in hashMap.keys() or newStr[i] != hashMap[pattern[i]]:
+                    return False
+        return True          
+                    
+            
+        
