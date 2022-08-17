@@ -9,7 +9,6 @@ class Solution:
             for word in words:
                 for ch in word:
                     morseCode += codes[ch]
-                print(morseCode)
                 if morseCode not in res:
                     res.append(morseCode)
                     count += 1
