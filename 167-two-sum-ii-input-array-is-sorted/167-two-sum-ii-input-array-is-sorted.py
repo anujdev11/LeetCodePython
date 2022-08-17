@@ -14,11 +14,12 @@ class Solution:
         right = len(numbers)-1
         
         while left<right:
-            if numbers[left]+numbers[right] < target:
+            s = numbers[left]+numbers[right]
+            if s==target:
+                return [left+1,right+1]
+            elif s < target:
                 left+= 1
             else:
-                if numbers[left]+numbers[right]==target:
-                    return [left+1,right+1]
                 right-=1
                 
         
