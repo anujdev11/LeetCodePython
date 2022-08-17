@@ -3,17 +3,15 @@ class Solution:
             codes = {"a": ".-", "b": "-...", "c": "-.-.", "d": "-..", "e": ".", "f": "..-.", "g": "--.", "h": "....", "i": "..", "j": ".---", "k": "-.-", "l": ".-..", "m": "--", "n": "-.", "o": "---", "p": ".--.", "q": "--.-", "r": ".-.", "s": "...", "t": "-", "u": "..-", "v": "...-", "w": ".--", "x": "-..-", "y": "-.--", "z": "--.."}
             
             morseCode = ""
-            count = 0
             res = []
             
             for word in words:
+                morseCode = ""
                 for ch in word:
                     morseCode += codes[ch]
-                if morseCode not in res:
-                    res.append(morseCode)
-                    count += 1
-                morseCode = ""
-            return count
+                res.append(morseCode)
+                
+            return len(set(res))
                 
                 
                 
