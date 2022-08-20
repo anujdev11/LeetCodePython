@@ -1,21 +1,23 @@
 class Solution:
     def isValid(self, s: str) -> bool:
-        res = []
-        paranthesis={'(':')', '{':'}', '[':']'}
-        if len(s) % 2 != 0:
-            return False
+        
+        stack=[]
+        
+        hashMap={'(':')','[':']','{':'}'}
         
         for i in s:
-            if i in paranthesis.keys():
-                res.append(i)
+            if i in hashMap.keys():
+                stack.append(i)
             else:
-                if res==[]:
+                if stack==[]:
                     return False
-                a = res.pop()
-                if i!=paranthesis[a]:
+                a = stack.pop()
+                if i!=hashMap[a]:
                     return False
-        if res==[]:
+            
+        if stack==[]:
             return True
         else:
             return False
+        
         
