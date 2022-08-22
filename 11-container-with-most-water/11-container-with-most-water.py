@@ -9,21 +9,18 @@ class Solution:
         i=0
         j=len(height)-1
         
-        maxLen = -1
-        maxWater = -1
+        res = 0
         while i<j:
-            if height[i]==height[j]:
-                maxWater = max(maxWater,min(height[i],height[j])*(j-i))
-                i+=1
-            elif height[i]<=height[j]:
-                maxWater = max(maxWater,min(height[i],height[j])*(j-i))
+            if height[i]<=height[j]:
+                maxWater = height[i]*(j-i)
                 i+=1
             else:
-                maxWater = max(maxWater,min(height[i],height[j])*(j-i))
+                maxWater = height[j]*(j-i)
                 j-=1
             
-                
-        return maxWater
+            if maxWater>res:
+                res=maxWater
+        return res
             
             
         
